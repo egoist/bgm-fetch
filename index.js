@@ -1,11 +1,5 @@
 var request = require('superagent')
 
-// DATE format: YYMM, eg: 1510
-function url (date) {
-  return 'https://raw.githubusercontent.com/wxt2005/bangumi-list/master/json/bangumi-${DATE}.json'
-    .replace('${DATE}', date)
-}
-
 function formatByDay (data) {
   var days = new Array(7)
   var animes = []
@@ -29,10 +23,15 @@ function fetch () {
 
 fetch.prototype = {
   constructor: fetch,
+  // DATE format: YYMM, eg: 1510
+  url (date) {
+    return 'https://raw.githubusercontent.com/wxt2005/bangumi-list/master/json/bangumi-${DATE}.json'
+      .replace('${DATE}', date)
+  },
   get (date, format) {
     return new Promise(function (resolve, reject) {
       request
-        .get(url(date))
+        .get(this.url(date))
         .end(function (err, res) {
           if (err) {
             reject(new Error(res.status))
@@ -48,7 +47,7 @@ fetch.prototype = {
             resolve(result)
           }
         })
-    })
+    }.bind(this))
   }
 }
 
