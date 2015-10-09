@@ -8,6 +8,7 @@ import fetch from 'bgm-fetch'
 fetch
   .get('1510') // 15 年 10 月新番
   .then(data => console.log(data))
+  .catch(error => console.error(error))
 ```
 
 ## License

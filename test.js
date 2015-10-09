@@ -1,9 +1,9 @@
 var fetch = require('./')
-console.log(fetch.toString())
-var date = '1502'
+
+var date = '1510'
 
 fetch
-  .get(date)
+  .get(date, true)
   .then(function (data) {
     console.log(data)
   })
