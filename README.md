@@ -1,6 +1,8 @@
 # bgm-fetch
 
-本库用于获取番剧更新，返回一个 Promise 给米娜桑。
+本库用于获取番组更新，返回一个 Promise 给米娜桑。
+
+番组资源由 [番组放送](https://github.com/wxt2005/bangumi-list) 提供。
 
 ```javascript
 import fetch from 'bgm-fetch'
