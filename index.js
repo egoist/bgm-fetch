@@ -17,9 +17,15 @@ fetch.prototype = {
       request
         .get(url(date))
         .end(function (err, res) {
-          if (err)
-            return reject(err)
-          return resolve(res.text)
+          if (err) {
+            reject(new Error(res.status))
+          }
+          else {
+            if (res.status != 200) {
+              return reject(new Error(res.status))
+            }
+            resolve(res.text)
+          }
         })
     })
   }
