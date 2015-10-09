@@ -6,7 +6,7 @@
 import fetch from 'bgm-fetch'
 
 fetch
-  .get('1510') // 15 年 10 月新番
+  .get('1510', true) // 15 年 10 月新番, 当 true 将会按星期几分类
   .then(data => console.log(data))
   .catch(error => console.error(error))
 ```
