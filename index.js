@@ -25,8 +25,9 @@ fetch.prototype = {
   constructor: fetch,
   // DATE format: YYMM, eg: 1510
   url (date) {
-    return 'https://raw.githubusercontent.com/wxt2005/bangumi-list/master/json/bangumi-${DATE}.json'
-      .replace('${DATE}', date)
+    const proxy = 'https://lib.avosapps.com/get/json?url='
+    return '${proxy}https://raw.githubusercontent.com/wxt2005/bangumi-list/master/json/bangumi-${DATE}.json'
+      .replace('${DATE}', date).replace('${proxy}', proxy)
   },
   get (date, format) {
     return new Promise(function (resolve, reject) {
