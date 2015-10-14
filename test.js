@@ -1,12 +1,17 @@
-var fetch = require('./')
+const bgm = require('./')
+const should = require('should')
+const promised = require('should-promised')
 
-var date = '1510'
+describe('bmg', () => {
+  it('should return BGMs', () => {
+    bgm
+      .get(1510)
+      .should.be.fulfilled()
+  })
 
-fetch
-  .get(date, true)
-  .then(function (data) {
-    console.log(data)
+  it('should be rejected', () => {
+    bgm
+      .get(151)
+      .should.be.rejected()
   })
-  .catch(function (err) {
-    console.error(err)
-  })
+})
