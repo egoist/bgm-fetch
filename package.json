@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "isomorphic-fetch": "^2.1.1",
+    "isomorphic-fetch": "^2.1.1"
   },
   "devDependencies": {
     "mocha": "^2.3.3",
