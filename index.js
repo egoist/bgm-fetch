@@ -20,11 +20,11 @@ function formatByDay(data) {
 }
 
 class BGM {
-  // DATE format: YYMM, eg: 1510
+  // date format: YYMM, eg: 1510
   url(date) {
-    return 'https://raw.githubusercontent.com/wxt2005/bangumi-list/master/json/bangumi-${DATE}.json'
-      .replace('${DATE}', date)
+    return `https://raw.githubusercontent.com/wxt2005/bangumi-list/master/json/bangumi-${date}.json`
   }
+
   get(date, format) {
     return new Promise((resolve, reject) => {
       fetch(this.url(date))
