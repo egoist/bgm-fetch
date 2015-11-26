@@ -1,16 +1,15 @@
 {
   "name": "bgm-fetch",
-  "version": "0.0.31",
+  "version": "0.0.4",
   "description": "本库用于获取番组更新，返回一个 Promise 给米娜桑。",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --require should --require should-promised test.js"
+    "test": "npm run babel && mocha --compilers js:babel-core/register --require should --require should-promised test.js",
+    "babel": "babel src.js --out-file index.js",
+    "beforePublish": "npm run babel && npm publish"
   },
   "author": "",
   "license": "ISC",
-  "engines": {
-    "node": ">= 4.0.0"
-  },
   "repository": {
     "type": "git",
     "url": "git@github.com:egoist/bgm-fetch.git"

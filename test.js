@@ -1,6 +1,4 @@
-'use strict'
-
-const bgm = require('./')
+import bgm from './'
 
 describe('bmg', () => {
   it('should return BGMs', () => {
