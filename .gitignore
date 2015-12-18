@@ -1,7 +1,8 @@
-index.js
+/index.js
 # Logs
 logs
 *.log
+/lib
 
 # Runtime data
 pids
