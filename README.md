@@ -18,6 +18,12 @@ bgm
 
 // 如果不提供日期会自动判断当前处于哪一季
 bgm.get(null, true)
+
+// 默认 API 地址是 'https://cdn.rawgit.com/wxt2005/bangumi-list/master/json/bangumi-__SEASON__.json'
+// 为了提高速度你可以弄个镜像并重新设置 API 地址
+bgm
+  .proxy('your-mirror.xxx/bangumi-__SEASON__.json')
+  .get()
 ```
 
 ## License
