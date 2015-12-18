@@ -9,20 +9,17 @@ class BGM {
 
   get(date, format) {
     return fetch(this.url(date))
-      .then(res => {
-        if (res.status !== 200) {
-          return reject(new Error(res.status))
-        }
-        return res.json()
+      .then(data => {
+        return data.json()
       })
-      .then(json => {
-        if (typeof json !== 'object') {
+      .then(data => {
+        if (typeof data !== 'object') {
           return
         }
         if (format) {
-          json = formatByDay(json)
+          data = formatByDay(data)
         }
-        return json
+        return data
       })
   }
 }
