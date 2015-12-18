@@ -15,6 +15,9 @@ bgm
   .get('1510', true) // 15 年 10 月新番, 当 true 将会按星期几分类
   .then(data => console.log(data))
   .catch(error => console.error(error))
+
+// 如果不提供日期会自动判断当前处于哪一季
+bgm.get(null, true)
 ```
 
 ## License
