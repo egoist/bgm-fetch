@@ -22,7 +22,7 @@ bgm(null)
 
 // 默认 API 地址是 'https://cdn.rawgit.com/wxt2005/bangumi-list/master/json/bangumi-__SEASON__.json'
 // 为了提高速度你可以弄个镜像并重新设置 API 地址
-bgm(null, {proxy: 'your-mirror.xxx/bangumi-__SEASON__.json'})
+bgm(null, {proxy: 'http://your-mirror.xxx/bangumi-__SEASON__.json'})
 ```
 
 ## License
