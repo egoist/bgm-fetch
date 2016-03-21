@@ -1,28 +1,7 @@
+import test from 'ava'
 import bgm from './src/index'
-import { getSeason } from './src/utils'
 
-describe('bmg', () => {
-  it('should return BGMs', () => {
-    bgm
-      .get(1510)
-      .should.be.fulfilled()
-  })
-  it('should return formated data', done => {
-    bgm
-      .get(1510, true)
-      .then(data => {
-        data.should.with.lengthOf(7)
-        done()
-      })
-  })
-  it('should be rejected', () => {
-    bgm
-      .get(151)
-      .should.be.rejected()
-  })
-  it('should return current season', done => {
-    const season = getSeason()
-    season.length.should.equal(4)
-    done()
-  })
+test('main', async t => {
+  const data = await bgm('1507', {format: true})
+  t.is(data[6][0].titleCN, '名侦探柯南')
 })

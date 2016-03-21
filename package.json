@@ -1,11 +1,14 @@
 {
   "name": "bgm-fetch",
-  "version": "0.0.5",
+  "version": "0.5.0",
   "description": "本库用于获取番组更新，返回一个 Promise 给米娜桑。",
-  "main": "lib/index.js",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
   "scripts": {
-    "test": "mocha --compilers js:babel-core/register --require should --require should-promised test.js --recursive",
-    "babel": "babel src --out-dir lib"
+    "test": "xo src/** && ava --require babel-register && npm run build",
+    "build": "rollup -c"
   },
   "author": "EGOIST <0x142857@gmail.com>",
   "license": "MIT",
@@ -17,11 +20,15 @@
     "isomorphic-fetch": "^2.1.1"
   },
   "devDependencies": {
-    "babel-cli": "^6.3.17",
-    "babel-core": "^6.3.17",
-    "babel-preset-es2015": "^6.3.13",
-    "mocha": "^2.3.3",
-    "should": "^7.1.0",
-    "should-promised": "^0.3.1"
+    "ava": "^0.13.0",
+    "babel-preset-es2015-rollup": "^1.1.1",
+    "babel-register": "^6.7.2",
+    "rollup": "^0.25.4",
+    "rollup-plugin-babel": "^2.4.0",
+    "xo": "^0.13.0"
+  },
+  "xo": {
+    "semicolon": false,
+    "space": 2
   }
 }
