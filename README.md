@@ -11,20 +11,23 @@
 ```javascript
 import bgm from 'bgm-fetch'
 
-// 15 年 10 月新番,
+// 获取当前放送中的新番
 // 当 format 为 true 将会按星期几分类
-bgm('1510', {format: true})
+bgm({ format: true })
   .then(data => console.log(data))
   .catch(error => console.error(error))
 
-// 如果不提供日期会自动判断当前处于哪一季
-bgm(null)
+// 指定一季的新番
+bgm({
+  year: 2015,
+  season: 7
+})
 
-// 默认 API 地址是 'https://cdn.rawgit.com/wxt2005/bangumi-list/master/json/bangumi-__SEASON__.json'
+// 默认 API 地址是 'https://cdn.rawgit.com/bangumi-data/bangumi-data/master/data/items/{year}/{season}.json'
 // 为了提高速度你可以弄个镜像并重新设置 API 地址
-bgm(null, {proxy: 'http://your-mirror.xxx/bangumi-__SEASON__.json'})
+bgm({ proxy: 'https://xxx.com/api.json' })
 ```
 
 ## License
 
-MIT.
+MIT &copy; [EGOIST](https://github.com/egoist)

@@ -7,8 +7,10 @@
     "index.js"
   ],
   "scripts": {
-    "test": "xo src/** && ava --require babel-register && npm run build",
-    "build": "rollup -c"
+    "test": "ava && npm run lint",
+    "lint": "xo",
+    "build": "bili --banner",
+    "prepublish": "npm run build"
   },
   "author": "EGOIST <0x142857@gmail.com>",
   "license": "MIT",
@@ -20,15 +22,29 @@
     "isomorphic-fetch": "^2.1.1"
   },
   "devDependencies": {
-    "ava": "^0.13.0",
-    "babel-preset-es2015-rollup": "^1.1.1",
-    "babel-register": "^6.7.2",
-    "rollup": "^0.25.4",
-    "rollup-plugin-babel": "^2.4.0",
-    "xo": "^0.13.0"
+    "ava": "^0.19.1",
+    "babel-preset-env": "^1.5.2",
+    "babel-register": "^6.24.1",
+    "bili": "^0.16.0-rc.2",
+    "eslint-config-rem": "^3.1.0",
+    "xo": "^0.18.2"
   },
   "xo": {
-    "semicolon": false,
-    "space": 2
+    "extends": "rem"
+  },
+  "ava": {
+    "require": ["babel-register"]
+  },
+  "babel": {
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ]
   }
 }

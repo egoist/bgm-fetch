@@ -1,20 +1,29 @@
-export function getSeason() {
+export function getDate() {
   const date = new Date()
-  const year = date.getFullYear().toString().substring(2)
+  const year = date.getFullYear()
   const month = date.getMonth() + 1
-  for (let m of [10, 7, 4, 1]) {
+  let season
+  for (const m of [10, 7, 4, 1]) {
     if (m <= month) {
-      return m.toString().length === 1 ? `${year}0${m}` : `${year}${m}`
+      season = m
     }
+  }
+  return {
+    year,
+    season
   }
 }
 
-export function formatByDay(data) {
-  const days = new Array(7)
-  const animes = []
-  Object.keys(data).map(name => animes.push(data[name]))
-  for (var i = 0; i < days.length; i++) {
-    days[i] = animes.filter(anime => anime.weekDayCN === i) // eslint-disable-line
+export function formatByWeekDay(data) {
+  const res = {}
+  for (const item of data) {
+    const weekday = new Date(item.begin).getDay()
+    res[weekday] = res[weekday] || []
+    res[weekday].push(item)
   }
-  return days
+  return res
+}
+
+export function ensureSeason(season) {
+  return season < 10 ? `0${season}` : season
 }

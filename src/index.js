@@ -1,14 +1,19 @@
 import fetch from 'isomorphic-fetch'
-import {getSeason, formatByDay} from './utils'
+import { getDate, formatByWeekDay, ensureSeason } from './utils'
 
-export default function bgm(date, {
-  format, proxy = 'https://cdn.rawgit.com/wxt2005/bangumi-list/master/json/bangumi-__SEASON__.json'
+export default function bgm({
+  year,
+  season,
+  format,
+  proxy = 'https://cdn.rawgit.com/bangumi-data/bangumi-data/master/data/items/{year}/{season}.json'
 } = {}) {
-  return fetch(url(date, proxy))
+  return fetch(url(year, season, proxy))
     .then(data => data.json())
-    .then(data => format ? formatByDay(data) : data)
+    .then(data => format ? formatByWeekDay(data) : data)
 }
 
-function url(date, proxy) {
-  return proxy.replace(/__SEASON__/, date || getSeason())
+function url(year, season, proxy) {
+  const d = getDate()
+  return proxy.replace(/{year}/, year || d.year)
+    .replace(/{season}/, ensureSeason(season || d.season))
 }
