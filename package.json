@@ -2,9 +2,9 @@
   "name": "bgm-fetch",
   "version": "1.0.0",
   "description": "本库用于获取番组更新，返回一个 Promise 给米娜桑。",
-  "main": "index.js",
+  "main": "dist/bgm-fetch.common.js",
   "files": [
-    "index.js"
+    "dist"
   ],
   "scripts": {
     "test": "ava && npm run lint",
