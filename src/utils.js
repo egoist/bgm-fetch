@@ -17,7 +17,7 @@ export function getDate() {
 export function formatByWeekDay(data) {
   const res = {}
   for (const item of data) {
-    const weekday = new Date(item.begin).getDay()
+    const weekday = new Date(item.begin).getUTCDay()
     res[weekday] = res[weekday] || []
     res[weekday].push(item)
   }
