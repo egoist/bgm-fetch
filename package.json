@@ -1,6 +1,6 @@
 {
   "name": "bgm-fetch",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "本库用于获取番组更新，返回一个 Promise 给米娜桑。",
   "main": "dist/bgm-fetch.common.js",
   "files": [
