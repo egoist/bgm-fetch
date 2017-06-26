@@ -6,6 +6,7 @@ export function getDate() {
   for (const m of [10, 7, 4, 1]) {
     if (m <= month) {
       season = m
+      break
     }
   }
   return {
